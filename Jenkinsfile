@@ -1,7 +1,7 @@
 pipeline {
 	agent any
     tools {
-        php 'PHP5.6'
+        org.jenkinsci.plugins.phpwebserver.config.PhpWebserverInstallation 'PHP5.6'
     }
     stages {
      	stage("Run Tests") {
