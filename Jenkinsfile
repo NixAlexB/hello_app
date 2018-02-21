@@ -16,6 +16,12 @@ pipeline {
             }
 
         }
+
+        stage("Build") {
+            steps {
+                sh "docker build -t nix/hello_app:${GIT_SHA} ."
+            }
+        }
     }
 }
 
