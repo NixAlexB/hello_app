@@ -1,0 +1,43 @@
+{
+    "name": "there4/slim-test-helpers",
+    "description": "Integration testing helpers for the Slim Framework",
+    "keywords": ["slim"],
+    "homepage": "https://github.com/there4/slim-test-helpers",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Craig Davis",
+            "email": "craig@there4development.com"
+	}, {
+	    "name": "Guillermo A. Fisher",
+	    "homepage": "http://guillermoandraefisher.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/there4/slim-test-helpers/issues",
+        "source": "https://github.com/there4/slim-test-helpers"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "slim/slim": "2.6.*",
+        "phpunit/phpunit": "4.*"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "1.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "There4": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "There4Test": "tests/"
+        }
+    },
+    "scripts": {
+        "test" : "vendor/bin/phpunit --verbose --coverage-text",
+        "sniff" : "vendor/bin/phpcs --standard=PSR2 --extensions=php src tests"
+    }
+}
