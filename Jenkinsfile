@@ -22,7 +22,7 @@ pipeline {
             agent any
             steps {
                 sh "docker tag nix/hello_app gcr.io/devsu-hello/hello_app"
-                sh "cloud docker -- push gcr.io/devsu-hello/hello_app"
+                sh "gcloud docker -- push gcr.io/devsu-hello/hello_app"
             }          
         }
     }
