@@ -1,12 +1,13 @@
 pipeline {
-	agent any
-    tools {
-        org.jenkinsci.plugins.phpwebserver.config.PhpWebserverInstallation
+
+	agent {
+        docker { image 'php:5.6.33-apache-jessie' }
     }
+
     stages {
-     	stage("Run Tests") {
+     	stage("PHP Ver") {
         	steps {
-        		sh './vendor/bin/phpunit'
+        		sh 'php -v'
         	}
      	}
     }
