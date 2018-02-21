@@ -17,6 +17,14 @@ pipeline {
                 sh "docker build -t nix/hello_app ."
             }
         }
+
+        stage("Deploy") {
+            agent any
+            steps {
+                sh "docker tag nix/hello_app gcr.io/devsu-hello/hello_app"
+                sh "cloud docker -- push gcr.io/devsu-hello/hello_app"
+            }          
+        }
     }
 }
 
