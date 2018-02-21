@@ -2,13 +2,9 @@
 
 $app->get('/hello/:name', function ($name) use($app) {
 
-   $referer = $app->request->headers('referer');
+   $hostname = gethostname();
+   $output = array("message" => "Hello $name from $hostname");
     
-   $output = json_encode(array(
-       'message' => "Hello $name from ". gethostname()
-      
-    ));
-    
-    $app->response->write($output);
+    $app->response->write(json_encode($output));
 
 });

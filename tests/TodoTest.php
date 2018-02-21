@@ -5,9 +5,9 @@ class ReferrerTest extends LocalWebTestCase
     public function testCanSetReferrer()
     {
 
-        $referer = array('HTTP_REFERER' => 'hello');
-        $this->client->get('/hello/some_name', array(), $referer);
-        $this->assertEquals('{"hostname":"hello","name":"some_name"}', $this->client->response->body());
+        $this->client->get('/hello/some_name');
+        $hostname = gethostname();
+        $this->assertEquals(json_encode(array('message' => "Hello some_name from $hostname")), $this->client->response->body());
     }
 }
 /* End of file ReferrerTest.php */
