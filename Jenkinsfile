@@ -9,6 +9,13 @@ pipeline {
         		sh 'php -v'
         	}
      	}
+
+        stage("Test") {
+            steps {
+                sh ./vendor/bin/phpunit"
+            }
+
+        }
     }
 }
 
