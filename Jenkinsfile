@@ -1,11 +1,6 @@
 pipeline {
     agent none
 
-    environment {
-
-
-    }
-
 	stages {
         stage("Test") {
             agent {
