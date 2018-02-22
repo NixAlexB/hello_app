@@ -19,7 +19,7 @@ pipeline {
         stage("Build") {
             agent any
             steps {
-                sh "docker build -t nix/hello_app::${BUILD_NUMBER} ."
+                sh "docker build -t nix/hello_app:${BUILD_NUMBER} ."
             }BUILD_NUMBER
         }
 
