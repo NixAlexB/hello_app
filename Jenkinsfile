@@ -1,7 +1,7 @@
 pipeline {
     agent none
     environment {
-        SECRET_KEY_FILE = credentials('devsu-hello-c04ce6c0ce32.json')
+        SECRET_KEY_FILE = credentials('e4d17ec4-afe1-4b86-bb06-5c267f1ec292')
     }
 	stages {
         stage("Test") {
