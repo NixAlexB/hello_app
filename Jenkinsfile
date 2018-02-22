@@ -27,7 +27,7 @@ pipeline {
 
             steps {
                 sh "docker tag nix/hello_app gcr.io/devsu-hello/hello_app:${env.BUILD_NUMBER}"
-                sh "gcloud auth activate-service-account --key-file="$SECRET_KEY_FILE""
+                sh "gcloud auth activate-service-account --key-file=${SECRET_KEY_FILE}"
                 sh "gcloud docker -- push gcr.io/devsu-hello/hello_app"
             }          
         }
