@@ -1,6 +1,8 @@
 pipeline {
     agent none
-
+    environment {
+        SECRET_KEY_FILE = credentials('devsu-hello')
+    }
 	stages {
         stage("Test") {
             agent {
@@ -22,6 +24,7 @@ pipeline {
             agent any
             steps {
                 sh "docker tag nix/hello_app gcr.io/devsu-hello/hello_app:${BUILD_NUMBER}"
+                sh "gcloud auth activate-service-account --key-file $SECRET_KEY_FILE"
                 sh "gcloud docker -- push gcr.io/devsu-hello/hello_app"
             }          
         }
